@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 18
+VisualStudioVersion = 18.6.11822.322
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scrapbook", "Scrapbook\Scrapbook.csproj", "{99623388-9889-404A-AC86-3D04EEE80769}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrapbookTests", "Scrapbook-Tests\ScrapbookTests.csproj", "{B60FE137-E666-4FF7-85C0-DD48C5E33533}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{99623388-9889-404A-AC86-3D04EEE80769}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99623388-9889-404A-AC86-3D04EEE80769}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99623388-9889-404A-AC86-3D04EEE80769}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99623388-9889-404A-AC86-3D04EEE80769}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B60FE137-E666-4FF7-85C0-DD48C5E33533}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B60FE137-E666-4FF7-85C0-DD48C5E33533}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B60FE137-E666-4FF7-85C0-DD48C5E33533}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B60FE137-E666-4FF7-85C0-DD48C5E33533}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2F9FF1D8-75B2-413B-B6D8-307653DC2980}
+	EndGlobalSection
+EndGlobal
