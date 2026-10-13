@@ -1,24 +1,11 @@
 ﻿using Microsoft.Win32;
-using Scrapbook.Core.Assets;
 using Scrapbook.Core.Assets.Types;
-using Scrapbook.Core.Documents;
 using Scrapbook.Core.Elements;
-using Scrapbook.Core.Geometry;
 using Scrapbook.Editing.Events;
-using Scrapbook.Editing.History;
-using Scrapbook.Editing.Operations.Assets;
 using Scrapbook.Editing.Operations.Element;
 using Scrapbook.Editing.Operations.Element.Clipboard;
-using Scrapbook.Editing.Operations.Interfaces;
-using Scrapbook.Editing.Selection;
 using Scrapbook.Editing.Services.SubServices;
 using Scrapbook.Persistence;
-using System.Numerics;
-using System.Reflection.Metadata;
-using System.Windows;
-using System.Windows.Documents;
-using System.Windows.Media.Imaging;
-using System.Xml.Linq;
 
 namespace Scrapbook.Editing.Services
 {
@@ -38,8 +25,11 @@ namespace Scrapbook.Editing.Services
 
             await History.Execute(operation, Document);
 
-            var args = new DocumentChangeEventArgs(DocumentChangeEvent.ElementAdded, (operation.ElementId != null) ? [(Guid)operation.ElementId] : []);
-            NotifyDocumentChanged(args);
+            if (operation.ElementId != null)
+            {
+                var args = new DocumentChangeEventArgs(DocumentChangeEvent.ElementAdded, (operation.ElementId != null) ? [(Guid)operation.ElementId] : []);
+                NotifyDocumentChanged(args);
+            }
         }
 
         public async Task ImportImageAsync(bool select = true)
@@ -48,13 +38,16 @@ namespace Scrapbook.Editing.Services
 
             await History.Execute(operation, Document);
 
-            var args = new DocumentChangeEventArgs(DocumentChangeEvent.ElementAdded, (operation.ElementId != null) ? [(Guid)operation.ElementId] : []);
-            NotifyDocumentChanged(args);
-
-            if (select && operation.ElementId is not null)
+            if (operation.ElementId != null)
             {
-                Selection.Clear();
-                Selection.Add((Guid)operation.ElementId);
+                var args = new DocumentChangeEventArgs(DocumentChangeEvent.ElementAdded, (operation.ElementId != null) ? [(Guid)operation.ElementId] : []);
+                NotifyDocumentChanged(args);
+
+                if (select)
+                {
+                    Selection.Clear();
+                    Selection.Add((Guid)operation.ElementId);
+                }
             }
         }
 

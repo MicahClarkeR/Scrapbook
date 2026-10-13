@@ -47,6 +47,8 @@ namespace Scrapbook.UI.Board
                 .Add("Add Image", async (sender, args) => { await Session.Editor.ImportImageAsync(); })
                 .Add("Paste", async (sender, args) => { await Session.Editor.PasteImageAsync(); })
                 .Build();
+
+            RegisterHotkeys();
         }
 
         public PropertyDictionary? GetProperties(BoardEditorService service)
@@ -149,5 +151,19 @@ namespace Scrapbook.UI.Board
             if (e.Source == this)
                 Session.Editor.CurrentSelection.Clear();
         }
+
+        #region Hotkeys
+
+        private void RegisterHotkeys()
+        {
+            HotkeyDetector.Register(Key.V, ModifierKeys.Control, HandlePaste);
+        }
+
+        private void HandlePaste(object sender, KeyEventArgs e)
+        {
+            Session.Editor.PasteImageAsync();
+        }
+
+        #endregion Hotkeys
     }
 }

@@ -92,6 +92,7 @@ namespace Scrapbook.UI.WPF
         }
         #endregion initalise
 
+        #region Document Callbacks
         private void OnDocumentChanged(object sender, Editing.Events.DocumentChangeEventArgs e)
         {
             switch (e.Kind)
@@ -139,7 +140,9 @@ namespace Scrapbook.UI.WPF
                 ProcessElementChange(id);
             }
         }
+        #endregion Document Callbacks
 
+        #region Element Handling
         protected virtual void AddElement(Guid id)
         {
             BoardElement element = Document.Elements.Get(id);
@@ -208,6 +211,8 @@ namespace Scrapbook.UI.WPF
             ElementsBoardOperationModel model = new ElementsBoardOperationModel(visual);
             _rotationOperation.Execute(Session, model);
         }
+        #endregion Element Handling
+
 
         /**
          * Its responsibilities should be limited to interaction and presentation:

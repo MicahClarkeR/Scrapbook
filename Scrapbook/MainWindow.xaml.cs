@@ -14,12 +14,15 @@ namespace Scrapbook
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static Window Instance { get; private set; }
+
         private BoardEditorSession _session => _boardSurface.Session;
         private BoardSurfaceControl _boardSurface;
         private SelectionPropertyInspectorControl _inspector;
 
         public MainWindow()
         {
+            Instance = this;
             BoardEditorSession session = new BoardEditorSession();
             _boardSurface = new BoardSurfaceControl();
 
