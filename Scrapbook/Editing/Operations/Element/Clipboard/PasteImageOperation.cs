@@ -99,7 +99,10 @@ namespace Scrapbook.Editing.Operations.Element.Clipboard
                 document.Assets.Trash((Guid) AssetId);
 
             if (ElementId != null)
+            {
                 BoardEditorSession.Instance.Editor.RemoveElement((Guid) ElementId);
+                document.Elements.Remove((Guid) ElementId);
+            }
 
             return Task.CompletedTask;
         }

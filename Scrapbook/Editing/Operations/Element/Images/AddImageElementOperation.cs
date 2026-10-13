@@ -38,7 +38,10 @@ namespace Scrapbook.Editing.Operations.Element.Images
         public override Task Undo(BoardDocument document)
         {
             if (ElementId != null)
-                BoardEditorSession.Instance.Editor.RemoveElement((Guid)ElementId);
+            {
+                BoardEditorSession.Instance.Editor.RemoveElement((Guid) ElementId);
+                document.Elements.Remove((Guid) ElementId);
+            }
 
             document.Assets.Trash(AssetId);
 

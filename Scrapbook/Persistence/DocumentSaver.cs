@@ -36,7 +36,9 @@ namespace Scrapbook.Persistence
 
         private void SaveImages(ImagesWrapper images)
         {
-            foreach (var image in Session.Document.Elements.GetAll<ImageElement>())
+            List<ImageElement> imageList = Session.Document.Elements.GetAll<ImageElement>();
+
+            foreach (var image in imageList)
             {
                 var asset = Session.Document.Assets.Get<ImageAsset>(image.AssetId);
 
